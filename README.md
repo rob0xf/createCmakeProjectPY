@@ -1,0 +1,1 @@
+Script for create project to Cmake with C
