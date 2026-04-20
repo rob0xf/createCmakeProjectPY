@@ -40,7 +40,7 @@ class CmakeProject():
         
         return code
     
-    
+     
     def createFilesCode(self) -> None:
         pathCmakeLists = self.__getPath() / "CmakeLists.txt"
         pathMainC = self.__getPath() / "src" / "main.c"
@@ -64,14 +64,14 @@ class CmakeProject():
         
         configCmake = subprocess.run(["cmake", "-B", "build"], cwd=pathProject, capture_output=True, text=True)
         if not configCmake.returncode == 0:
-            print("ERR")
+            print(configCmake.stderr)
             return
 
         print(configCmake.stdout)
 
         compile_code = subprocess.run(["cmake", "--build", "build"], cwd=pathProject, capture_output=True, text=True)
         if not compile_code.returncode == 0:
-            print("ERR")
+            print(configCmake.stderr)
             return
         
         subprocess.run(["./build/app"], cwd=pathProject)
