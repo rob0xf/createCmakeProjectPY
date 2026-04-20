@@ -83,7 +83,7 @@ brew install cmake
 
 ---
 
-## 🚀 Uso
+## Uso
 
 ```bash
 ./ckpjt NombreProyecto .
@@ -145,19 +145,6 @@ Ejemplo con MinGW:
 cmake -S . -B build -G "MinGW Makefiles"
 cmake --build build
 ```
-## 📌 Buenas prácticas
-
-```bash
-cmake -S . -B build
-```
-
-Evitar:
-
-```bash
-cmake -B build
-```
-
----
 ## Roadmap
 * Soporte para C++
 * Templates personalizados
