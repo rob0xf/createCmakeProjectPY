@@ -1,3 +1,4 @@
+# Autor rob0xf
 #!/usr/bin/env python3
 import sys 
 import subprocess
@@ -42,7 +43,7 @@ class CmakeProject():
     
      
     def createFilesCode(self) -> None:
-        pathCmakeLists = self.__getPath() / "CmakeLists.txt"
+        pathCmakeLists = self.__getPath() / "CMakeLists.txt"
         pathMainC = self.__getPath() / "src" / "main.c"
 
         code_CmakeLists = self.__descompressCode(self.__CompressCodeCmakeList())
@@ -62,7 +63,7 @@ class CmakeProject():
     def executeCmake(self) -> None:
         pathProject = self.__getPath()
         
-        configCmake = subprocess.run(["cmake", "-B", "build"], cwd=pathProject, capture_output=True, text=True)
+        configCmake = subprocess.run(["cmake", "-S", ".", "-B", "build"], cwd=pathProject, capture_output=True, text=True)
         if not configCmake.returncode == 0:
             print(configCmake.stderr)
             return
